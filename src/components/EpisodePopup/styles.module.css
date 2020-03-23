@@ -1,0 +1,11 @@
+.description {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.thumbnail {
+    margin-top: 16px;
+    height: 169px;
+    width: 300px;
+    border-radius: 4px;
+}
