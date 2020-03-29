@@ -1,3 +1,4 @@
+![Publish image to ACR](https://github.com/vegardalvsaker/distankb-map/workflows/Publish%20image%20to%20ACR/badge.svg?branch=master)
 # App is hosted [here!](https://deringenskulletru-kart.azurewebsites.net)
 
 # Technologies
