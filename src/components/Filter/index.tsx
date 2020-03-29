@@ -40,7 +40,7 @@ const Filter: React.FC<FilterProps> = props => {
                 {allSelected ? 'Velg ingen' : 'Velg alle'}
             </span>
             <h4 className={filters.length === 0 ? 'help-text' : 'hide'}>
-                *Psst* trykk på en sesong
+                *Psst* velg en sesong
                 <span role="img" aria-label="face with hand over mouth">
                     🤭
                 </span>
