@@ -8,11 +8,10 @@ on:
     branches: [ master ]
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+    frontend_build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    steps:
+      runs-on: ubuntu-latest
+      steps:
       - uses: actions/checkout@master
       - name: Publish frontend image
         uses: elgohr/Publish-Docker-Github-Action@2.14
@@ -21,4 +20,20 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
           registry: distankbregistry.azurecr.io
-      
+          dockerfile: Dockerfile
+
+    backend_build:
+    # The type of runner that the job will run on
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@master
+      - name: Publish frontend image
+        uses: elgohr/Publish-Docker-Github-Action@2.14
+        with:
+          name: distankbregistry.azurecr.io/distankb-map
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+          registry: distankbregistry.azurecr.io
+          workdir: distankb.Api/Distankb.Api
+          dockerfile: Dockerfile
+  
