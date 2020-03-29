@@ -1,29 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import { seasons } from '../../constants'
 
 type FilterProps = {
     filters: string[]
     onChange: (filters: string[]) => void
 }
-const filterValues = [
-    '2019',
-    '2018',
-    '2017',
-    '2016',
-    '2015',
-    '2014',
-    '2013',
-    '2012',
-    '2011',
-    '2010',
-    '2009',
-    '2008',
-    '2007',
-    '2006',
-    '2005',
-    '2004',
-    '2003',
-    '2002',
-]
 
 const Filter: React.FC<FilterProps> = props => {
     const [filters, setFilters] = useState<string[]>(props.filters)
@@ -35,36 +16,44 @@ const Filter: React.FC<FilterProps> = props => {
                 : [...filters, value]
         )
     }
-
+    const allSelected = filters.length === seasons.length
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => props.onChange(filters), [filters])
 
     return (
         <div className="form">
             <h1 className="filter-header">
-                {' '}
                 <span role="img" aria-label="movie camera">
                     🎥
-                </span>{' '}
-                Filtrer på sesong{' '}
+                </span>
+                Filtrer på sesong
                 <span role="img" aria-label="clapper board">
                     🎬
                 </span>
             </h1>
+            <span
+                onClick={() => setFilters(allSelected ? [] : seasons)}
+                className={`unselectable pick-all ${
+                    allSelected ? 'label label-active' : 'label'
+                }`}
+            >
+                {allSelected ? 'Velg ingen' : 'Velg alle'}
+            </span>
             <h4 className={filters.length === 0 ? 'help-text' : 'hide'}>
-                *Psst* trykk på en sesong{' '}
+                *Psst* trykk på en sesong
                 <span role="img" aria-label="face with hand over mouth">
                     🤭
                 </span>
             </h4>
             <div className="filter-container">
-                {filterValues.map(v => (
-                    <div className="filter-btn-container">
+                {seasons.map(v => (
+                    <div key={v} className="filter-btn-container">
                         <span
-                            className={
+                            className={`unselectable ${
                                 filters.includes(v)
-                                    ? 'label label-active unselectable'
-                                    : 'label unselectable'
-                            }
+                                    ? 'label label-active'
+                                    : 'label'
+                            }`}
                             onClick={() => handleCheckboxChange(v)}
                         >
                             {v}

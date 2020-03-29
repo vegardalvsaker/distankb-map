@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Metadata } from '../types/Metadata'
+import { getApiUrl } from '../constants'
+
+const url = getApiUrl()
 
 export default (prId: string) => {
     const [metadata, setMetadata] = useState<Metadata>()
@@ -8,15 +11,11 @@ export default (prId: string) => {
     const fetchMetadata = async () => {
         setIsFetching(true)
         try {
-            const response = await fetch(
-                `https://psapi.nrk.no/programs/${prId}`,
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    method: 'GET',
-                }
-            )
+            const response = await fetch(`${url}/${prId}`, {
+                headers: { 'Content-Type': 'application/json' },
+                method: 'GET',
+            })
             const result = (await response.json()) as Metadata
-            console.log(result)
             setMetadata(result)
         } catch (ex) {}
         setIsFetching(false)

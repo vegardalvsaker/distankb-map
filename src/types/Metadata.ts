@@ -1,9 +1,4 @@
 export type Metadata = {
-    _links: {
-        share: {
-            href: string
-        }
-    }
     episodeTitle: string
     seasonNumber: string
     episodeNumber: string

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Map, TileLayer, Marker } from 'react-leaflet'
-import L from 'leaflet'
 import useMarkers from '../../hooks/useMarkers'
 import EpisodePopup from '../EpisodePopup'
 import { EpisodeGeo } from '../../types/EpisodeGeo'
@@ -8,21 +7,14 @@ import Filter from '../Filter'
 
 const App: React.FC = () => {
     const [filteredEpisodes, setFilteredEpisodes] = useState<EpisodeGeo[]>([])
-    const [filters, setFilters] = useState<string[]>([
-        '2019',
-        '2018',
-        '2017',
-        '2016',
-        '2015',
-        '2014',
-    ])
+    const [filters, setFilters] = useState<string[]>([])
 
     const { episodes, isFetching } = useMarkers()
 
-    const customMarker = new L.Icon({
-        iconUrl: require('../../assets/marker.png'),
-        className: 'leaflet-div-icon',
-    })
+    // const customMarker = new L.Icon({
+    //     iconUrl: require('../../assets/marker.png'),
+    //     className: 'leaflet-div-icon',
+    // })
 
     useEffect(() => {
         if (episodes)

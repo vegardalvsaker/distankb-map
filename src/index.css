@@ -21,6 +21,7 @@ body {
     background-color: #e4d5bc;
     padding: 2px 8px 8px 8px;
     border-radius: 4px;
+    width: 301px !important;
 }
 
 .leaflet-popup-tip {
@@ -38,6 +39,13 @@ body {
     height: inherit;
     background-color: #633216;
     overflow: scroll;
+    overflow-x: hidden;
+}
+
+.pick-all {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 26px;
+    margin: 8px 120px;
 }
 
 .filter-header {
@@ -71,22 +79,41 @@ body {
 
 .hide {
     visibility: hidden;
-    padding: 6px 0;
-    margin: 0 80px;
+    padding: 4px 8px;
+    background-color: #633216;
+    margin: 0 72px;
+    animation-name: slowlyHide;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    color: #e7fffa;
+    border: 2px #e7e300 dashed;
+    position: -webkit-sticky;
+    position: sticky;
+    border-radius: 20px;
+    top: 8px;
 }
 
 .help-text {
     color: #e7fffa;
+    background-color: #633216;
     border: 2px #e7e300 dashed;
     border-radius: 20px;
     padding: 4px 8px;
     margin: 0 72px;
-    animation-name: example;
+    animation-name: slowlyShow;
     animation-duration: 1s;
     animation-timing-function: linear;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 8px;
 }
 
-@keyframes example {
+.img-loader {
+    background-color: red;
+    height: 169px;
+}
+
+@keyframes slowlyShow {
     0% {
         opacity: 0;
         visibility: hidden;
@@ -102,6 +129,25 @@ body {
     100% {
         visibility: visible;
         opacity: 1;
+    }
+}
+
+@keyframes slowlyHide {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    1% {
+        visibility: visible;
+        opacity: 0.99;
+    }
+    80% {
+        visibility: visible;
+        opacity: 0.2;
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
     }
 }
 

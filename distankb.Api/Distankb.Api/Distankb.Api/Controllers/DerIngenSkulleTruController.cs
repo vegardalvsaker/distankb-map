@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -11,19 +10,34 @@ namespace Distankb.Api.Controllers
     [Route("api/[controller]")]
     public class DerIngenSkulleTru : ControllerBase
     {
-        
-        private readonly ILogger<DerIngenSkulleTru> _logger;
-        
-
-        public DerIngenSkulleTru(ILogger<DerIngenSkulleTru> logger)
+        public DerIngenSkulleTru()
+        { 
+        }
+         
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EpisodeGeoEntity>>> GetAllEpisodes([FromServices] EpisodeService episodeService)
         {
-            _logger = logger;
+            try
+            {
+                return Ok(await episodeService.GetAllEpisodesAsync());
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<EpisodeEntity>>> GetAllEpisodes([FromServices] EpisodeRepository episodeRepository)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<EpisodeMetadata>> GetOneEpisode(string id,[FromServices] EpisodeService episodeService)
         {
-            return Ok(await episodeRepository.GetAllEpisodes());
+            try
+            {
+                return Ok(await episodeService.GetEpisodeMetadataAsync(id));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }
