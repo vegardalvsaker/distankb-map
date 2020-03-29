@@ -23,13 +23,7 @@ const Filter: React.FC<FilterProps> = props => {
     return (
         <div className="form">
             <h1 className="filter-header">
-                <span role="img" aria-label="movie camera">
-                    🎥
-                </span>
-                Filtrer på sesong
-                <span role="img" aria-label="clapper board">
-                    🎬
-                </span>
+                Der ingen skulle tru at nokon kunne bu
             </h1>
             <span
                 onClick={() => setFilters(allSelected ? [] : seasons)}
@@ -61,7 +55,7 @@ const Filter: React.FC<FilterProps> = props => {
                     </div>
                 ))}
             </div>
-            <h1>
+            <div className="emoji-group">
                 <span className="flipped" role="img" aria-label="cow">
                     🐄
                 </span>
@@ -72,7 +66,16 @@ const Filter: React.FC<FilterProps> = props => {
                 <span role="img" aria-label="sheep">
                     🐏
                 </span>
-            </h1>
+            </div>
+            <div className="footer">
+                <span className="footer-content">
+                    Vegard Alvsaker
+                    <span style={{ color: 'black' }}> | </span>
+                    <a href="https://github.com/vegardalvsaker/distankb-map">
+                        Åpen kildekode
+                    </a>
+                </span>
+            </div>
         </div>
     )
 }

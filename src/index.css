@@ -15,6 +15,7 @@ body {
 
 .leaflet-popup-content-wrapper {
     background-color: #373126;
+    color: black;
 }
 
 .leaflet-popup-content {
@@ -31,26 +32,30 @@ body {
 .grid {
     display: grid;
     grid-template-columns: 400px 1fr;
-    height: inherit;
+    height: 100%;
 }
 
 .form {
     text-align: center;
-    height: inherit;
+    height: 100%;
     background-color: #633216;
-    overflow: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
 .pick-all {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 26px;
+    font-size: 20px;
     margin: 8px 120px;
 }
 
 .filter-header {
     color: #e7fffa;
-    margin: 8px 0;
+    margin: 0 0 8px 0;
+}
+
+.emoji-group {
+    font-size: xx-large;
 }
 
 .label {
@@ -60,6 +65,11 @@ body {
     border-radius: 10px;
     cursor: pointer;
     background-color: #e7fffa;
+}
+
+.label-inline-block {
+    display: inline-block;
+    background-color: #633216;
 }
 
 .label-active {
@@ -73,7 +83,7 @@ body {
 
 .filter-btn-container {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 32px;
+    font-size: 24px;
     margin: 16px 80px;
 }
 
@@ -108,9 +118,39 @@ body {
     top: 8px;
 }
 
-.img-loader {
-    background-color: red;
-    height: 169px;
+#link-to-episode:link,
+#link-to-episode:visited {
+    font-size: large;
+    font-family: 'Josefin Sans', sans-serif;
+
+    color: white;
+    text-decoration: none;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 24px;
+    background-color: #633216;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.footer-content {
+    border-bottom: 1px black solid;
+}
+
+.footer a:link,
+.footer a:visited {
+    color: #888683;
+    text-decoration: none;
+}
+.footer a:hover {
+    font-style: italic;
+    color: white;
+    border-bottom: 1px white solid;
 }
 
 @keyframes slowlyShow {

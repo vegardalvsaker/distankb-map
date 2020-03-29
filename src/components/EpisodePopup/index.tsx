@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Popup } from 'react-leaflet'
 import useMetadata from '../../hooks/useMetadata'
 import styles from './styles.module.css'
-import { Metadata } from '../../types/Metadata'
 
 type EpisodePopupProps = {
     prId: string
@@ -32,47 +31,27 @@ const PopupContent: React.FC<PopupContentProps> = props => {
         <>
             {metadata ? (
                 <>
-                    <h2>{metadata.episodeTitle}</h2>
-                    <h3>Sesong: {metadata.seasonNumber}</h3>
-                    <h3>Episode: #{metadata.episodeNumber}</h3>
-
+                    <h1>{metadata.episodeTitle}</h1>
+                    <h2>Sesong: {metadata.seasonNumber}</h2>
+                    <h2>Episode: #{metadata.episodeNumber}</h2>
                     <p className={styles.description}>
                         {metadata.shortDescription}
                     </p>
-                    <PopupImage metadata={metadata} />
-                    <a
-                        href={`https://tv.nrk.no/program/${metadata.id}`}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        Se episoden
-                    </a>
-                </>
-            ) : null}
-        </>
-    )
-}
-
-type PopupImageProps = {
-    metadata: Metadata | undefined
-}
-
-const PopupImage: React.FC<PopupImageProps> = props => {
-    const [imgLoading, setImgLoading] = useState(true)
-    const { metadata } = props
-    return (
-        <>
-            {metadata ? (
-                <>
+                    <span className="label label-inline-block">
+                        <a
+                            id="link-to-episode"
+                            href={`https://tv.nrk.no/program/${metadata.id}`}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            Se episoden
+                        </a>
+                    </span>
                     <img
                         className={styles.thumbnail}
                         alt={metadata.episodeTitle}
-                        onLoad={e => setImgLoading(false)}
                         src={metadata.image.webImages[3].imageUrl}
                     ></img>
-                    {imgLoading ? (
-                        <p className="img-loader">'loading'</p>
-                    ) : null}
                 </>
             ) : null}
         </>
