@@ -25,11 +25,10 @@ const App: React.FC = () => {
     return (
         <>
             {isFetching ? (
-                <pre>Loading</pre>
+                <h1>Lastar inn kartet...</h1>
             ) : (
                 <div className="grid">
                     <Filter filters={filters} onChange={setFilters} />
-
                     <Map
                         zoom={5}
                         center={[65.376, 12.524]}

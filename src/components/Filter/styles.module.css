@@ -1,0 +1,153 @@
+.form {
+    text-align: center;
+    height: 100%;
+    background-color: #633216;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.pickAll {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    margin: 8px 120px;
+}
+
+.filterHeaderContainer {
+    border: 4px black solid;
+    border-radius: 10px;
+    margin: 8px 20px 8px 20px;
+    background-color: #e7fffa;
+    color: black;
+}
+
+.filterHeaderContainer h2 {
+    font-size: 20px;
+}
+
+.filterHeader {
+    margin-top: 2px;
+}
+
+.helpText {
+    color: #e7fffa;
+    background-color: #633216;
+    border: 2px #e7e300 dashed;
+    border-radius: 20px;
+    padding: 4px 8px;
+    margin: 0 72px;
+    animation-name: slowlyShow;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 8px;
+}
+
+.hide {
+    visibility: hidden;
+    padding: 4px 8px;
+    background-color: #633216;
+    margin: 0 72px;
+    animation-name: slowlyHide;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    color: #e7fffa;
+    border: 2px #e7e300 dashed;
+    position: -webkit-sticky;
+    position: sticky;
+    border-radius: 20px;
+    top: 8px;
+}
+
+.filterBtnContainer {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 24px;
+    margin: 16px 80px;
+}
+
+.emojiGroup {
+    font-size: xx-large;
+}
+
+.label {
+    display: block;
+    border: 4px solid black;
+    padding: 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #e7fffa;
+}
+
+.labelActive {
+    background-color: #4960e2;
+    color: #e7fffa;
+}
+
+.filterBtnContainer:first-child {
+    margin-top: 8px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    background-color: #633216;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.footerContent {
+    border-bottom: 1px black solid;
+}
+
+.footer a:link,
+.footer a:visited {
+    color: white;
+    text-decoration: none;
+}
+.footer a:hover {
+    font-style: italic;
+    color: white;
+    border-bottom: 1px white solid;
+}
+
+@keyframes slowlyShow {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    1% {
+        visibility: visible;
+        opacity: 0;
+    }
+    80% {
+        visibility: visible;
+        opacity: 0.5;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes slowlyHide {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    1% {
+        visibility: visible;
+        opacity: 0.99;
+    }
+    80% {
+        visibility: visible;
+        opacity: 0.2;
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}

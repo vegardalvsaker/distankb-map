@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Popup } from 'react-leaflet'
+import classnames from 'classnames'
 import useMetadata from '../../hooks/useMetadata'
 import styles from './styles.module.css'
 
@@ -37,7 +38,12 @@ const PopupContent: React.FC<PopupContentProps> = props => {
                     <p className={styles.description}>
                         {metadata.shortDescription}
                     </p>
-                    <span className="label label-inline-block">
+                    <span
+                        className={classnames(
+                            styles.label,
+                            styles.labelInlineBlock
+                        )}
+                    >
                         <a
                             id="link-to-episode"
                             href={`https://tv.nrk.no/program/${metadata.id}`}
