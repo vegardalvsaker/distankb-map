@@ -4,8 +4,21 @@
 }
 
 .thumbnail {
-    margin-top: 16px;
-    height: 169px;
     width: 300px;
     border-radius: 4px;
+    margin-top: 12px;
+}
+
+.label {
+    display: block;
+    border: 4px solid black;
+    padding: 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #e7fffa;
+}
+
+.labelInlineBlock {
+    display: inline-block;
+    background-color: #633216;
 }

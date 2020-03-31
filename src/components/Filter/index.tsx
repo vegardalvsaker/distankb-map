@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import classnames from 'classnames'
 import { seasons } from '../../constants'
+import styles from './styles.module.css'
 
 type FilterProps = {
     filters: string[]
@@ -21,39 +23,43 @@ const Filter: React.FC<FilterProps> = props => {
     useEffect(() => props.onChange(filters), [filters])
 
     return (
-        <div className="form">
-            <h1 className="filter-header">
-                <span role="img" aria-label="movie camera">
-                    🎥
-                </span>
-                Filtrer på sesong
-                <span role="img" aria-label="clapper board">
-                    🎬
-                </span>
-            </h1>
+        <div className={styles.form}>
+            <div className={styles.filterHeaderContainer}>
+                <h2 className={styles.filterHeader}>
+                    «Der ingen skulle tru at nokon kunne bu»
+                </h2>
+            </div>
+            <div className={styles.filterHeaderContainer}>
+                <h1 className={styles.filterHeader}>Episodekart!</h1>
+            </div>
             <span
                 onClick={() => setFilters(allSelected ? [] : seasons)}
-                className={`unselectable pick-all ${
-                    allSelected ? 'label label-active' : 'label'
-                }`}
+                className={classnames(
+                    'unselectable',
+                    styles.pickAll,
+                    styles.label,
+                    allSelected ? styles.labelActive : ''
+                )}
             >
-                {allSelected ? 'Velg ingen' : 'Velg alle'}
+                {allSelected ? 'Velj ingen' : 'Velj alle'}
             </span>
-            <h4 className={filters.length === 0 ? 'help-text' : 'hide'}>
-                *Psst* velg en sesong
+            <h4
+                className={filters.length === 0 ? styles.helpText : styles.hide}
+            >
+                *Psst* velj ein sesong
                 <span role="img" aria-label="face with hand over mouth">
                     🤭
                 </span>
             </h4>
-            <div className="filter-container">
+            <div className={styles.filterContainer}>
                 {seasons.map(v => (
-                    <div key={v} className="filter-btn-container">
+                    <div key={v} className={styles.filterBtnContainer}>
                         <span
-                            className={`unselectable ${
-                                filters.includes(v)
-                                    ? 'label label-active'
-                                    : 'label'
-                            }`}
+                            className={classnames(
+                                'unselectable',
+                                styles.label,
+                                filters.includes(v) ? styles.labelActive : ''
+                            )}
                             onClick={() => handleCheckboxChange(v)}
                         >
                             {v}
@@ -61,7 +67,7 @@ const Filter: React.FC<FilterProps> = props => {
                     </div>
                 ))}
             </div>
-            <h1>
+            <div className={styles.emojiGroup}>
                 <span className="flipped" role="img" aria-label="cow">
                     🐄
                 </span>
@@ -72,7 +78,16 @@ const Filter: React.FC<FilterProps> = props => {
                 <span role="img" aria-label="sheep">
                     🐏
                 </span>
-            </h1>
+            </div>
+            <div className={styles.footer}>
+                <span className={styles.footerContent}>
+                    Vegard Alvsaker
+                    <span style={{ color: 'black' }}> | </span>
+                    <a href="https://github.com/vegardalvsaker/distankb-map">
+                        Open kjeldekode
+                    </a>
+                </span>
+            </div>
         </div>
     )
 }

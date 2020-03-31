@@ -25,19 +25,18 @@ const App: React.FC = () => {
     return (
         <>
             {isFetching ? (
-                <pre>Loading</pre>
+                <h1>Lastar inn kartet...</h1>
             ) : (
                 <div className="grid">
                     <Filter filters={filters} onChange={setFilters} />
-
                     <Map
                         zoom={5}
                         center={[65.376, 12.524]}
                         style={{ height: '100%' }}
                     >
                         <TileLayer
-                            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                            url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+                            url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
                         />
 
                         {filteredEpisodes

@@ -15,6 +15,7 @@ body {
 
 .leaflet-popup-content-wrapper {
     background-color: #373126;
+    color: black;
 }
 
 .leaflet-popup-content {
@@ -31,124 +32,42 @@ body {
 .grid {
     display: grid;
     grid-template-columns: 400px 1fr;
-    height: inherit;
+    height: 100%;
 }
 
-.form {
-    text-align: center;
-    height: inherit;
-    background-color: #633216;
-    overflow: scroll;
-    overflow-x: hidden;
-}
-
-.pick-all {
+#link-to-episode:link,
+#link-to-episode:visited {
+    font-size: large;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 26px;
-    margin: 8px 120px;
+
+    color: white;
+    text-decoration: none;
 }
 
-.filter-header {
-    color: #e7fffa;
-    margin: 8px 0;
-}
-
-.label {
-    display: block;
-    border: 4px solid black;
-    padding: 4px;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #e7fffa;
-}
-
-.label-active {
-    background-color: #4960e2;
-    color: #e7fffa;
-}
-
-.filter-btn-container:first-child {
-    margin-top: 8px;
-}
-
-.filter-btn-container {
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 24px;
+    background-color: #633216;
+    color: white;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 32px;
-    margin: 16px 80px;
 }
 
-.hide {
-    visibility: hidden;
-    padding: 4px 8px;
-    background-color: #633216;
-    margin: 0 72px;
-    animation-name: slowlyHide;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    color: #e7fffa;
-    border: 2px #e7e300 dashed;
-    position: -webkit-sticky;
-    position: sticky;
-    border-radius: 20px;
-    top: 8px;
+.footer-content {
+    border-bottom: 1px black solid;
 }
 
-.help-text {
-    color: #e7fffa;
-    background-color: #633216;
-    border: 2px #e7e300 dashed;
-    border-radius: 20px;
-    padding: 4px 8px;
-    margin: 0 72px;
-    animation-name: slowlyShow;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 8px;
+.footer a:link,
+.footer a:visited {
+    color: #888683;
+    text-decoration: none;
 }
-
-.img-loader {
-    background-color: red;
-    height: 169px;
-}
-
-@keyframes slowlyShow {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-    }
-    1% {
-        visibility: visible;
-        opacity: 0;
-    }
-    80% {
-        visibility: visible;
-        opacity: 0.5;
-    }
-    100% {
-        visibility: visible;
-        opacity: 1;
-    }
-}
-
-@keyframes slowlyHide {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-    1% {
-        visibility: visible;
-        opacity: 0.99;
-    }
-    80% {
-        visibility: visible;
-        opacity: 0.2;
-    }
-    100% {
-        visibility: hidden;
-        opacity: 0;
-    }
+.footer a:hover {
+    font-style: italic;
+    color: white;
+    border-bottom: 1px white solid;
 }
 
 #root {
