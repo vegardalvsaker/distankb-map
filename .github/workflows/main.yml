@@ -1,31 +1,30 @@
 name: Publish image to ACR
 on:
-  push:
-    branches: [ master ]
+    push:
+        branches: [master]
 jobs:
     frontend_build:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@master
-      - name: Publish frontend image
-        uses: elgohr/Publish-Docker-Github-Action@2.14
-        with:
-          name: distankbregistry.azurecr.io/distankb-map
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
-          registry: distankbregistry.azurecr.io
-          dockerfile: Dockerfile
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - name: Publish frontend image
+              uses: elgohr/Publish-Docker-Github-Action@2.14
+              with:
+                  name: distankbregistry.azurecr.io/distankb-map
+                  username: ${{ secrets.ACR_USERNAME }}
+                  password: ${{ secrets.ACR_PASSWORD }}
+                  registry: distankbregistry.azurecr.io
+                  dockerfile: Dockerfile
     backend_build:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@master
-      - name: Publish frontend image
-        uses: elgohr/Publish-Docker-Github-Action@2.14
-        with:
-          name: distankbregistry.azurecr.io/distankb-api
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
-          registry: distankbregistry.azurecr.io
-          workdir: distankb.Api/Distankb.Api
-          dockerfile: Dockerfile
-  
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - name: Publish frontend image
+              uses: elgohr/Publish-Docker-Github-Action@2.14
+              with:
+                  name: distankbregistry.azurecr.io/distankb-api
+                  username: ${{ secrets.ACR_USERNAME }}
+                  password: ${{ secrets.ACR_PASSWORD }}
+                  registry: distankbregistry.azurecr.io
+                  workdir: distankb.Api
+                  dockerfile: Dockerfile
