@@ -1,0 +1,70 @@
+html,
+body {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.leaflet-popup-content-wrapper {
+    background-color: #373126;
+    color: black;
+}
+
+.leaflet-popup-content {
+    background-color: #e4d5bc;
+    padding: 2px 8px 8px 8px;
+    border-radius: 4px;
+    width: 301px !important;
+}
+
+.leaflet-popup-tip {
+    background-color: #e4d5bc;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    height: 100%;
+}
+
+#link-to-episode:link,
+#link-to-episode:visited {
+    font-size: large;
+    font-family: 'Josefin Sans', sans-serif;
+
+    color: white;
+    text-decoration: none;
+}
+
+#root {
+    height: inherit;
+}
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+.flipped {
+    display: inline-block;
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+.unselectable {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
