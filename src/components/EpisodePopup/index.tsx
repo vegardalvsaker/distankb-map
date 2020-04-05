@@ -50,7 +50,7 @@ const PopupContent: React.FC<PopupContentProps> = props => {
                             rel="noopener noreferrer"
                             target="_blank"
                         >
-                            Se episoden
+                            Sjå episoden
                         </a>
                     </span>
                     <img
