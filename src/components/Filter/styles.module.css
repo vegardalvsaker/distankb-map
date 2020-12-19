@@ -1,23 +1,25 @@
-.form {
+.container {
     text-align: center;
     height: 100%;
-    background-color: #633216;
+    background: linear-gradient(0deg, #633216 7%, #c46f3e 84%);
     overflow-y: auto;
     overflow-x: hidden;
-}
-
-.pickAll {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 20px;
-    margin: 8px 120px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .filterHeaderContainer {
-    border: 4px black solid;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px black solid;
     border-radius: 10px;
-    margin: 8px 20px 8px 20px;
-    background-color: #e7fffa;
-    color: black;
+    border-top: unset;
+    border-left: unset;
+    margin: 20px;
+    background: #cc845b;
+    color: #e6f4ff;
 }
 
 .filterHeaderContainer h2 {
@@ -25,12 +27,12 @@
 }
 
 .filterHeader {
-    margin-top: 2px;
+    margin: 0;
 }
 
 .helpText {
-    color: #e7fffa;
-    background-color: #633216;
+    color: #e6f4ff;
+    background: #c46f3e;
     border: 2px #e7e300 dashed;
     border-radius: 20px;
     padding: 4px 8px;
@@ -46,12 +48,12 @@
 .hide {
     visibility: hidden;
     padding: 4px 8px;
-    background-color: #633216;
+    background: #c46f3e;
     margin: 0 72px;
     animation-name: slowlyHide;
     animation-duration: 1s;
     animation-timing-function: linear;
-    color: #e7fffa;
+    color: #e6f4ff;
     border: 2px #e7e300 dashed;
     position: -webkit-sticky;
     position: sticky;
@@ -65,26 +67,36 @@
     margin: 16px 80px;
 }
 
-.emojiGroup {
-    font-size: xx-large;
+.filterBtnContainer:first-child {
+    margin-top: 8px;
 }
 
 .label {
-    display: block;
-    border: 4px solid black;
-    padding: 4px;
+    width: 100%;
+    border: 3px solid black;
     border-radius: 10px;
+    padding: 8px;
     cursor: pointer;
     background-color: #e7fffa;
+    font-size: inherit;
+    font-family: inherit;
 }
 
 .labelActive {
     background-color: #4960e2;
-    color: #e7fffa;
+    color: #e6f4ff;
 }
 
-.filterBtnContainer:first-child {
-    margin-top: 8px;
+.pickAll {
+    width: auto;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    margin: 8px 120px;
+    padding: 8px 20px;
+}
+
+.emojiGroup {
+    font-size: xx-large;
 }
 
 .footer {
@@ -105,13 +117,13 @@
 
 .footer a:link,
 .footer a:visited {
-    color: white;
+    color: #e6f4ff;
     text-decoration: none;
 }
 .footer a:hover {
     font-style: italic;
-    color: white;
-    border-bottom: 1px white solid;
+    color: #e6f4ff;
+    border-bottom: 1px #e6f4ff solid;
 }
 
 @keyframes slowlyShow {

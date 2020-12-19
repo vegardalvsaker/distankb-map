@@ -4,14 +4,15 @@ import { getApiUrl } from '../constants'
 
 const url = getApiUrl()
 
-export default (prId: string) => {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default (programId: string) => {
     const [metadata, setMetadata] = useState<Metadata>()
     const [isFetching, setIsFetching] = useState(false)
 
     const fetchMetadata = async () => {
         setIsFetching(true)
         try {
-            const response = await fetch(`${url}/${prId}`, {
+            const response = await fetch(`${url}/${programId}`, {
                 headers: { 'Content-Type': 'application/json' },
                 method: 'GET',
             })

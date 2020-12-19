@@ -8,13 +8,13 @@ type FilterProps = {
     onChange: (filters: string[]) => void
 }
 
-const Filter: React.FC<FilterProps> = props => {
+const Filter: React.FC<FilterProps> = (props) => {
     const [filters, setFilters] = useState<string[]>(props.filters)
 
     const handleCheckboxChange = (value: string) => {
         setFilters(
             filters.includes(value)
-                ? filters.filter(fil => fil !== value)
+                ? filters.filter((fil) => fil !== value)
                 : [...filters, value]
         )
     }
@@ -22,17 +22,36 @@ const Filter: React.FC<FilterProps> = props => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => props.onChange(filters), [filters])
 
+    const displaySeasons = () => {
+        return seasons.map((season) => (
+            <div key={season} className={styles.filterBtnContainer}>
+                <button
+                    className={classnames(
+                        'unselectable',
+                        styles.label,
+                        filters.includes(season) ? styles.labelActive : ''
+                    )}
+                    onClick={() => handleCheckboxChange(season)}
+                >
+                    {season}
+                </button>
+            </div>
+        ))
+    }
+
     return (
-        <div className={styles.form}>
+        <div className={styles.container}>
             <div className={styles.filterHeaderContainer}>
                 <h2 className={styles.filterHeader}>
                     «Der ingen skulle tru at nokon kunne bu»
                 </h2>
             </div>
+
             <div className={styles.filterHeaderContainer}>
                 <h1 className={styles.filterHeader}>Episodekart!</h1>
             </div>
-            <span
+
+            <button
                 onClick={() => setFilters(allSelected ? [] : seasons)}
                 className={classnames(
                     'unselectable',
@@ -42,7 +61,8 @@ const Filter: React.FC<FilterProps> = props => {
                 )}
             >
                 {allSelected ? 'Velj ingen' : 'Velj alle'}
-            </span>
+            </button>
+
             <h4
                 className={filters.length === 0 ? styles.helpText : styles.hide}
             >
@@ -51,22 +71,17 @@ const Filter: React.FC<FilterProps> = props => {
                     🤭
                 </span>
             </h4>
-            <div className={styles.filterContainer}>
-                {seasons.map(v => (
-                    <div key={v} className={styles.filterBtnContainer}>
-                        <span
-                            className={classnames(
-                                'unselectable',
-                                styles.label,
-                                filters.includes(v) ? styles.labelActive : ''
-                            )}
-                            onClick={() => handleCheckboxChange(v)}
-                        >
-                            {v}
-                        </span>
-                    </div>
-                ))}
-            </div>
+            <div className={styles.filterContainer}>{displaySeasons()}</div>
+            <Footer />
+        </div>
+    )
+}
+
+export default Filter
+
+const Footer: React.FC = () => {
+    return (
+        <>
             <div className={styles.emojiGroup}>
                 <span className="flipped" role="img" aria-label="cow">
                     🐄
@@ -88,8 +103,6 @@ const Filter: React.FC<FilterProps> = props => {
                     </a>
                 </span>
             </div>
-        </div>
+        </>
     )
 }
-
-export default Filter

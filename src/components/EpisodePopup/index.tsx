@@ -5,16 +5,16 @@ import useMetadata from '../../hooks/useMetadata'
 import styles from './styles.module.css'
 
 type EpisodePopupProps = {
-    prId: string
+    programId: string
 }
 
-const EpisodePopup: React.FC<EpisodePopupProps> = props => {
+const EpisodePopup: React.FC<EpisodePopupProps> = (props) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
         <>
             <Popup onOpen={() => setIsOpen(true)}>
-                {isOpen ? <PopupContent prId={props.prId} /> : null}
+                {isOpen ? <PopupContent programId={props.programId} /> : null}
             </Popup>
         </>
     )
@@ -22,22 +22,33 @@ const EpisodePopup: React.FC<EpisodePopupProps> = props => {
 export default EpisodePopup
 
 type PopupContentProps = {
-    prId: string
+    programId: string
 }
 
-const PopupContent: React.FC<PopupContentProps> = props => {
-    const { metadata } = useMetadata(props.prId)
+const PopupContent: React.FC<PopupContentProps> = (props) => {
+    const { metadata } = useMetadata(props.programId)
 
     return (
         <>
             {metadata ? (
                 <>
-                    <h1>{metadata.episodeTitle}</h1>
-                    <h2>Sesong: {metadata.seasonNumber}</h2>
-                    <h2>Episode: #{metadata.episodeNumber}</h2>
-                    <p className={styles.description}>
-                        {metadata.shortDescription}
-                    </p>
+                    <div className={styles.popupContentContainer}>
+                        <h1 className={styles.title}>
+                            {metadata.episodeTitle}
+                        </h1>
+                        <h2>Sesong: {metadata.seasonNumber}</h2>
+                        <h2>Episode: #{metadata.episodeNumber}</h2>
+                        <p className={styles.description}>
+                            {metadata.shortDescription}
+                        </p>
+                    </div>
+
+                    <img
+                        className={styles.thumbnail}
+                        alt={metadata.episodeTitle}
+                        src={metadata.image.webImages[3].imageUrl}
+                    ></img>
+
                     <span
                         className={classnames(
                             styles.label,
@@ -45,7 +56,7 @@ const PopupContent: React.FC<PopupContentProps> = props => {
                         )}
                     >
                         <a
-                            id="link-to-episode"
+                            className={styles.linkToEpisode}
                             href={`https://tv.nrk.no/program/${metadata.id}`}
                             rel="noopener noreferrer"
                             target="_blank"
@@ -53,11 +64,6 @@ const PopupContent: React.FC<PopupContentProps> = props => {
                             Sjå episoden
                         </a>
                     </span>
-                    <img
-                        className={styles.thumbnail}
-                        alt={metadata.episodeTitle}
-                        src={metadata.image.webImages[3].imageUrl}
-                    ></img>
                 </>
             ) : null}
         </>

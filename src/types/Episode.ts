@@ -4,3 +4,10 @@ export type EpisodeGeo = {
     lat: number
     lng: number
 }
+
+export type Episode = {
+    key: string
+    season: string
+    lat: number
+    lng: number
+}

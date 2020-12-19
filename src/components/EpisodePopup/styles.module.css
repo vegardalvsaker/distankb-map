@@ -6,13 +6,21 @@
 .thumbnail {
     width: 300px;
     border-radius: 4px;
+    border: 3px black solid;
+    border-top: unset;
+    border-left: unset;
     margin-top: 12px;
+}
+
+.title {
+    padding-top: 8px;
 }
 
 .label {
     display: block;
-    border: 4px solid black;
+    border: 3px solid black;
     padding: 4px;
+    margin-top: 12px;
     border-radius: 10px;
     cursor: pointer;
     background-color: #e7fffa;
@@ -20,5 +28,25 @@
 
 .labelInlineBlock {
     display: inline-block;
-    background-color: #633216;
+    background-color: #4960e2;
+    padding: 4px 8px;
+}
+
+.linkToEpisode:link,
+.linkToEpisode:visited {
+    font-size: large;
+    font-family: 'Josefin Sans', sans-serif;
+
+    color: #e6f4ff;
+    text-decoration: none;
+}
+
+.popupContentContainer {
+    background-color: #cc845b;
+    padding: 0px 16px 0px;
+    border: 3px black solid;
+    border-radius: 10px;
+    border-top: unset;
+    border-left: unset;
+    margin-bottom: 8px;
 }
